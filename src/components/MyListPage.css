@@ -1,0 +1,52 @@
+/* MyListPage.css */
+.my-list-page {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.delete-button:hover {
+  background-color: #ff1a1a;
+}
+
+
+@media (max-width: 768px) {
+    .movie-list {
+        gap: 15px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .movie-list {
+        flex-direction: column; 
+        gap: 10px; 
+    }
+
+    .my-list-page {
+        padding: 10px; 
+    }
+
+    .delete-button {
+        font-size: 12px; 
+        padding: 8px; 
+    }
+}

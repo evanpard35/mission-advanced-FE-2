@@ -1,0 +1,95 @@
+.App {
+  font-family: Arial, sans-serif;
+  background-color: #161616;
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  height: 400px;
+  background-color: #161616;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 1;  */
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, rgba(22, 22, 22, 1) 100%);
+  z-index: 2; 
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 3; 
+  bottom: 50px;
+  left: 40px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.hero-content p {
+  font-family: "Lato", sans-serif;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+.btn-mulai {
+  font-family: "Lato", sans-serif;
+  padding: 10px 20px;
+  background-color: #0155af;
+  margin-top: 20px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.btn-selengkapnya {
+  font-family: "Lato", sans-serif;
+  padding: 10px 30px;
+  background-color: #222;
+  margin-top: 20px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.btn-umur {
+  font-family: "Lato", sans-serif;
+  padding: 10px 10px;
+  background-color: transparent;
+  margin-top: 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  color: white;
+  margin-right: 10px;
+  /* cursor: pointer; */
+}
+
+.carousel {
+  margin: 20px 0;
+  margin-left: 20px;
+}
+
+.carousel-items {
+  display: flex;
+  overflow-x: scroll;
+}

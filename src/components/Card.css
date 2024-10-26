@@ -1,0 +1,136 @@
+.card {
+    width: 100%; 
+    max-width: 200px; 
+    margin: 10px;
+    flex: 0 0 auto;  
+}
+
+.card img {
+    width: 100%; 
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.15); 
+}
+
+.card-content {
+    font-family: "Lato", sans-serif;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+    .card {
+        max-width: 150px; 
+    }
+    .card-content {
+        font-size: small;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .card {
+        max-width: 180px; 
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden; 
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%; 
+    max-height: 90%; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    border-radius: 8px; 
+    padding: 20px; 
+}
+
+
+.card .modal .modal-content .modal-img {
+    width: auto; 
+    height: auto;
+    max-width: 100%; 
+    max-height: none; 
+    border-radius: 8px;
+    transition: none; 
+}
+
+
+.card .modal .modal-content .modal-img:hover {
+    transform: none; 
+}
+
+
+.modal-gradient {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right: 0;
+    height: 150vh; 
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 60%, rgb(0, 0, 0) 100%); 
+    pointer-events: none; 
+    
+}
+
+.modal-title {
+    font-family: "Lato", sans-serif;
+    font-size: 1.5em; 
+    margin: 10px 0; 
+    color: white; 
+    
+}
+
+.modal-buttons {
+    display: flex; 
+    gap: 15px; 
+    margin: 20px 0;  
+}
+
+.start-button,
+.add-button {
+    font-family: "Lato", sans-serif;
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 30px; 
+    cursor: pointer; 
+}
+
+.start-button {
+    font-size: 18px;
+    background-color: #0155af; 
+    color: white; 
+}
+
+.add-button {
+    border: 2px solid white; 
+    font-size: 25px;
+    background-color: #222; 
+    color: white; 
+}
+
+.modal:active {
+    cursor: pointer; 
+}
+
+
+.modal-description {
+    font-family: "Lato", sans-serif;
+    margin-top: 80px; 
+    font-size: 1.3em; 
+    color: white; 
+}

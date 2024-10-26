@@ -1,0 +1,72 @@
+.carousel {
+    padding: 20px;
+    background-color: #161616;
+    position: relative; 
+}
+
+.carousel h2 {
+    font-family: "Lato", sans-serif;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.carousel-items {
+    display: flex;
+    gap: 15px;
+    overflow-x: scroll; 
+    scroll-behavior: smooth;
+    padding: 10px 0; 
+    scrollbar-width: none; 
+}
+
+
+.carousel-items::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 150px;
+}
+.btn-mulai:hover, .btn-selengkapnya:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+@media (min-width: 600px) {
+    .card {
+        width: 200px;
+    }
+}
+@media (max-width: 480px) {
+    .carousel h2 {
+    font-size: 1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: 250px;
+    }
+}
+
+.carousel-button {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}

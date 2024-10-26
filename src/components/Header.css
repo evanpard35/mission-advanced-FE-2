@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #161616;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #181818;
+  padding: 10px 20px;
+  color: #fff;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+  margin-left: 30px;
+}
+
+.brand-name {
+  font-family: "Londrina Solid", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  padding: 5px;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-link {
+  font-family: "Lato", sans-serif;
+  margin-left: 30px;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #181818;
+  border-style: none;
+}
+
+.nav-link:hover {
+  color: #ddd;
+}
+
+/* Profile Menu */
+.navbar-right {
+  position: relative;
+}
+
+.profile-menu {
+  cursor: pointer;
+}
+
+.profile-icon {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background-color: black;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  width: 170px;
+}
+
+.dropdown-item {
+  font-family: "Lato", sans-serif;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: black;
+  border-style: none;
+  width: 100%;
+}
+
+.dropdown-item i {
+  margin-right: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: #444;
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .hamburger-menu {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 24px;
+  }
+
+  .logo {
+    width: 30px;
+    margin-left: 10px;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    padding: 15px 5px;
+    width: 100%;
+    text-align: left;
+    font-size: small;
+  }
+
+  .dropdown-menu {
+    font-size: 12px;
+    width: 130px;
+  }
+
+  .profile-icon {
+    width: 24px;
+  }
+}
