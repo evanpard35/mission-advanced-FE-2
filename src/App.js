@@ -31,6 +31,7 @@ const App = () => {
 
   const addToMyList = (movie) => {
     dispatch(addMovieToMyList(movie)); 
+  };
 
   const removeFromMyList = (movieTitle) => {
     dispatch(removeMovieFromMyList(movieTitle)); 
