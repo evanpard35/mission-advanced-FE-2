@@ -8,9 +8,9 @@ const api = axios.create({
 });
 
 // Fungsi untuk mengambil continueWatching data
-export const getContinueWatching = () => {
-    return api.get('/continueWatching');
-};
+// export const getContinueWatching = () => {
+//     return api.get('/continueWatching');
+// };
 
 // Fungsi untuk mengambil topRated data
 export const getTopRated = () => {

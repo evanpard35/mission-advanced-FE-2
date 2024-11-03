@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
-import { getContinueWatching, getTopRated } from './services/api/api'; // Panggil API dari api.js
+import { useDispatch, useSelector } from 'react-redux';
+import { setTopRated, addMovieToMyList, removeMovieFromMyList } from './store/redux/apiSlice';
+import { getTopRated } from './services/api/api';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import Header from './components/Header';
@@ -23,49 +25,34 @@ const Layout = ({ children }) => {
 };
 
 const App = () => {
-  const [myMovies, setMyMovies] = useState([]);
-  // const [continueWatching, setContinueWatching] = useState([]);
-  const [topRated, setTopRated] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const topRatedMovies = useSelector((state) => state.api.topRated);
+  const myMovies = useSelector((state) => state.api.myMovies || []); 
 
   const addToMyList = (movie) => {
-    setMyMovies((prevMovies) => {
-      if (!prevMovies.find((m) => m.title === movie.title)) {
-        return [...prevMovies, movie];
-      }
-      return prevMovies;
-    });
-  };
+    dispatch(addMovieToMyList(movie)); 
 
   const removeFromMyList = (movieTitle) => {
-    setMyMovies((prevMovies) => prevMovies.filter(movie => movie.title !== movieTitle));
+    dispatch(removeMovieFromMyList(movieTitle)); 
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTopRatedMovies = async () => {
       try {
-        // const continueWatchingResponse = await getContinueWatching();
-        const topRatedResponse = await getTopRated();
-        // setContinueWatching(continueWatchingResponse.data);
-        setTopRated(topRatedResponse.data);
-        setLoading(false);
+        const response = await getTopRated();
+        dispatch(setTopRated(response.data));
       } catch (error) {
         console.error('Error fetching data:', error);
-        setLoading(false);
       }
     };
 
-    fetchData();
-  }, []);
+    fetchTopRatedMovies();
+  }, [dispatch]);
 
   const isAuthenticated = () => {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   };
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <Router>
@@ -88,8 +75,7 @@ const App = () => {
                   </div>
                 </div>
 
-                {/* <Carousel title="Melanjutkan Tonton Film" movies={continueWatching} addToMyList={addToMyList} /> */}
-                <Carousel title="Top Rating Film dan Series Hari Ini" movies={topRated} addToMyList={addToMyList} />
+                <Carousel title="Top Rating Film dan Series Hari Ini" movies={topRatedMovies} addToMyList={addToMyList} />
               </div>
             ) : (
               <Navigate to="/login" />
@@ -99,9 +85,7 @@ const App = () => {
           <Route
             path="/my-list"
             element={isAuthenticated() ? (
-              <div>
-                <MyListPage myMovies={myMovies} removeFromMyList={removeFromMyList} />
-              </div>
+              <MyListPage myMovies={myMovies} removeFromMyList={removeFromMyList} />
             ) : (
               <Navigate to="/login" />
             )}
